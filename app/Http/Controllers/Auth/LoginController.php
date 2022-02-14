@@ -46,9 +46,7 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        // dd($request);
         Auth::logout();
-        // $this->performLogout($request);
         return view('logout');
     }
 }

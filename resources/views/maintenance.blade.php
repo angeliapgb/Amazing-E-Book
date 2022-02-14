@@ -7,19 +7,19 @@
             <table class="table table-borderless">
                 <thead>
                     <tr>
-                        <th class="text-center">Account</th>
-                        <th colspan="2" class="text-center">Action</th>
+                        <th class="text-center">{{__('translate.account')}}</th>
+                        <th colspan="2" class="text-center">{{__('translate.action')}}</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse($account as $account)
                         <tr>
                             <td>{{ $account->firstname. ' '. $account->middlename. ' '. $account->lastname. ' - '. $account->role_desc }}</td>
-                            <td><a href="{{ route('updateRole', $account->id) }}">Update Role</a></td>
-                            <td><a href="{{ route('userDelete', $account->id) }}">Delete</a></td>
+                            <td><a href="{{ route('updateRole', $account->id) }}">{{__('translate.update role')}}</a></td>
+                            <td><a href="{{ route('userDelete', $account->id) }}">{{__('translate.delete')}}</a></td>
                         </tr>
                     @empty
-                        <td>No data...</td>
+                        <td>{{__('translate.nodata')}}</td>
                     @endforelse
                 </tbody>
             </table>

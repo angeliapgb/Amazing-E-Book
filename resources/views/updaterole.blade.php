@@ -17,7 +17,7 @@
                             <tr>
                                 <td>
                                     <div class="form-group row">
-                                        <label for="role_id" class="col-md-2 col-form-label ">{{ __('Role:') }}</label>
+                                        <label for="role_id" class="col-md-2 col-form-label ">{{__('translate.role')}}</label>
                 
                                         <div class="col-md-2">
                                             <select class="form-control" name="role_id">
@@ -33,7 +33,7 @@
                                     <div class="form-group row mb-0">
                                         <div class="col-md-6 offset-md-4">
                                             <button type="submit" class="btn btn-warning">
-                                                {{ __('Save') }}
+                                                {{__('translate.save')}}
                                             </button>
                                         </div>
                                     </div>

@@ -58,7 +58,7 @@ class RegisterController extends Controller
             'gender_id' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:account'],
             'role_id' => ['required'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required', 'string', 'min:8', 'regex:/^(?=.*\d).+$/'],
             'display_picture_link' => ['required', 'mimes:jpg,jpeg,png'],
         ]);
     }

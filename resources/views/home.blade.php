@@ -7,8 +7,8 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th class="title-book">Author</th>
-                        <th class="title-book">Title</th>
+                        <th class="title-book">{{__('translate.author')}}</th>
+                        <th class="title-book">{{__('translate.title')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -18,7 +18,7 @@
                             <td><a href="{{ route('detail', $ebook->title) }}">{{ $ebook->title }}</a></td>
                         </tr>
                     @empty
-                        <td>No data...</td>
+                        <td>{{__('translate.nodata')}}</td>
                     @endforelse
                 </tbody>
         </table>

@@ -7,7 +7,7 @@
             <table class="table table-borderless">
                 <thead>
                     <tr>
-                        <th colspan="2" class="text-center">Title</th>
+                        <th colspan="2" class="text-center">{{__('translate.title')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -18,12 +18,12 @@
                                 <form method="POST" action="/cartDelete">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $cart->id }}">
-                                        <input type="submit" class="btn btn-link" value="{{ __('Delete') }}">
+                                        <input type="submit" class="btn btn-link" value="{{ __('translate.delete') }}">
                                 </form>
                             </td>
                         </tr>
                     @empty
-                        <td>No data...</td>
+                        <td>{{ __('translate.nodata') }}</td>
                     @endforelse
                     @if ($cart->count() != 0)
                         <tr>
@@ -32,7 +32,7 @@
                                 <form method="POST" action="/submit">
                                     @csrf
                                     <button type="submit" class="btn btn-warning">
-                                        Submit
+                                        {{ __('translate.submit') }}
                                     </button>
                                 </form>
                             </td>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -76,18 +77,15 @@ class PageController extends Controller
 
     public function saveProfile(Request $request)
     {
-        
         $data = $request->validate([
             'firstname' => ['required', 'alpha', 'max:25'],
             'middlename' => ['nullable', 'alpha', 'max:25'],
             'lastname' => ['required', 'alpha', 'max:25'],
             'gender_id' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required', 'string', 'min:8', 'regex:/^(?=.*\d).+$/'],
             'display_picture_link' => ['required', 'mimes:jpg,jpeg,png'],
         ]);
-
-        // dd($data);
 
         $image =  $request->file('display_picture_link');
         $name = time() . '.' . $image->getClientOriginalExtension();;
@@ -137,5 +135,13 @@ class PageController extends Controller
                                 ->update(['role_id' => $request->role_id]);
 
         return redirect('maintenance');
+    }
+
+    public function lang($locale)
+    {
+        session()->put('locale', $locale);
+        App::setLocale($locale);
+
+        return redirect()->back();
     }
 }

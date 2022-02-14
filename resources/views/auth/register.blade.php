@@ -6,13 +6,13 @@
         <div class="card-body">
             <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
-                <div class="header">{{ __('Sign Up') }}</div>
+                <div class="header">{{ __('translate.register') }}</div>
                 <div class="container">
                     <div class="form-group row mb-0">
                         <div class="input-data row">
                             <div class="col-sm">
                                 <div class="form-group row">
-                                    <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
+                                    <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('translate.first name') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
@@ -26,7 +26,7 @@
                                 </div>
         
                                 <div class="form-group row">
-                                    <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Last Name:') }}</label>
+                                    <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('translate.last name') }}</label>
 
                                         <div class="col-md-6">
                                             <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
@@ -40,7 +40,7 @@
                                 </div>
         
                                 <div class="form-group row">
-                                    <label for="gender_id" class="col-md-4 col-form-label text-md-right">{{ __('Gender:') }}</label>
+                                    <label for="gender_id" class="col-md-4 col-form-label text-md-right">{{ __('translate.gender') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="male" type="radio" class="radio-inline" name="gender_id" value="1" required autocomplete="gender_id">{{ __(' Male') }}
@@ -49,7 +49,7 @@
                                 </div>
         
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password:') }}</label>
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('translate.password') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -65,7 +65,7 @@
 
                             <div class="col-sm">
                                 <div class="form-group row">
-                                    <label for="middlename" class="col-md-4 col-form-label text-md-right">{{ __('Middle Name:') }}</label>
+                                    <label for="middlename" class="col-md-4 col-form-label text-md-right">{{ __('translate.middle name') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="middlename" type="text" class="form-control @error('middlename') is-invalid @enderror" name="middlename" value="{{ old('middlename') }}" autocomplete="middlename" autofocus>
@@ -79,7 +79,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email Address:') }}</label>
+                                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('translate.email') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -93,7 +93,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="role_id" class="col-md-4 col-form-label text-md-right">{{ __('Role:') }}</label>
+                                    <label for="role_id" class="col-md-4 col-form-label text-md-right">{{ __('translate.role') }}</label>
 
                                         <div class="col-md-6">
                                             <select class="form-control" name="role_id">
@@ -105,7 +105,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="display_picture_link" class="col-md-4 col-form-label text-md-right">{{ __('Display Picture') }}</label>
+                                    <label for="display_picture_link" class="col-md-4 col-form-label text-md-right">{{ __('translate.display picture') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="display_picture_link" type="file" class="form-control @error('display_picture_link') is-invalid @enderror" name="display_picture_link" required autofocus>
@@ -123,7 +123,7 @@
                     <div class="form-group row mb-0">
                         <div class="mx-auto">
                             <button type="submit" class="btn btn-warning">
-                                {{ __('Submit') }}
+                                {{ __('translate.submit') }}
                             </button>
                         </div>
                     </div>
@@ -133,7 +133,7 @@
     </div>
 
     <div class="login-redirect">
-        <a href="{{ route('login') }}">Already have an account? click here to log in</a>
+        <a href="{{ route('login') }}">{{ __('translate.have account') }}</a>
     </div>
 </div>
 @endsection

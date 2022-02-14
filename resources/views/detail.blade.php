@@ -9,17 +9,17 @@
                 <tbody>
                     @foreach ($ebook as $ebook)
                         <tr>
-                            <td>Title:</td>
+                            <td>{{__('translate.title')}}</td>
                             <td>{{ $ebook->title }}</td>
                         </tr>
 
                         <tr>
-                            <td>Author:</td>
+                            <td>{{__('translate.author')}}</td>
                             <td>{{ $ebook->author }}</td>
                         </tr>
 
                         <tr>
-                            <td>Description</td>
+                            <td>{{__('translate.description')}}</td>
                             <td>{{ $ebook->description }}</td>
                         </tr>
                     @endforeach
@@ -30,7 +30,7 @@
                                 @csrf
                                 <input type="hidden" name="ebook_id" value="{{ $ebook->id }}">
                                 <button type="submit" class="btn btn-warning">
-                                    Rent
+                                    {{__('translate.rent')}}
                                 </button>
                             </form>
                         </td>

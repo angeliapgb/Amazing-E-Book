@@ -45,3 +45,8 @@ Route::post('/maintenance/{id}', [PageController::class, 'userDelete'])->name('u
 
 Route::get('/updaterole/{id}', [PageController::class, 'updateRole'])->name('updateRole')->middleware('guestmiddleware');
 Route::post('/updaterole/{id}', [PageController::class, 'saveRole'])->name('saveRole')->middleware('guestmiddleware');
+
+if (file_exists(app_path('Http/Controllers/PageController.php')))
+{
+    Route::get('lang/{locale}', [PageController::class , 'lang']);
+}

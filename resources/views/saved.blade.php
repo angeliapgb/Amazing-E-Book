@@ -4,7 +4,7 @@
 <div class="welcome-text container">
     <div class="row justify-content-center">
         <p>Saved!</p>
-        <a href="{{ route('home') }}">Click here to "Home"</a>
+        <a href="{{ route('home') }}">{{__('translate.click')}}</a>
     </div>
 </div>
 @endsection

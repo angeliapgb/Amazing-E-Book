@@ -21,40 +21,38 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body class="antialiased">
-    {{-- <div id="app"> --}}
-        <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand text-dark mx-auto" href="{{ route('home') }}">Amazing E-Book</a>
-            @if (Route::has('login'))
-                <div class="user-access hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @guest
-                        @if (Route::has('login'))
-                            <a class="ml-4 text-sm text-dark bg-warning" href="{{ route('register') }}">{{ __('Sign Up') }}</a>
-                        @endif
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand text-dark mx-auto" href="{{ route('home') }}">Amazing E-Book</a>
+        @if (Route::has('login'))
+            <div class="user-access hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                @guest
+                    @if (Route::has('login'))
+                        <a class="ml-4 text-sm text-dark bg-warning" href="{{ route('register') }}">{{ __('translate.register') }}</a>
+                    @endif
 
-                        @if (Route::has('register'))
-                            <a class="text-sm text-dark bg-warning" href="{{ route('login') }}">{{ __('Log In') }}</a>
-                        @endif
-                    @else
-                        <div class="menu-right">
-                            <a class="link text-dark" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                {{ __('Log Out') }}
-                            </a>
+                    @if (Route::has('register'))
+                        <a class="text-sm text-dark bg-warning" href="{{ route('login') }}">{{ __('translate.login') }}</a>
+                    @endif
+                @else
+                    <div class="menu-right">
+                        <a class="link text-dark" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            {{ __('translate.logout') }}
+                        </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    @endguest
-                </div>
-            @endif
-        </nav>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                @endguest
+            </div>
+        @endif
+    </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    {{-- </div> --}}
+    <main class="py-4">
+        @yield('content')
+    </main>
     
     <nav class="navbar fixed-bottom">
         <span class="mb-0 mx-auto ">&copy; Amazing E-Book 2022</span>
