@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use App\Models\Account;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -30,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -50,15 +51,9 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        // $pict = $data->file('pict');
-        // $name = time() . '.' . $pict->getClientOriginalExtension();
-        // $location = 'image/' . $name;
-        // Storage::putFileAs('public/image', $image, $name);
-        // $data['pict'] = $location;
-
         return Validator::make($data, [
             'firstname' => ['required', 'alpha', 'max:25'],
-            'middlename' => ['sometimes', 'alpha', 'max:25'],
+            'middlename' => ['nullable', 'alpha', 'max:25'],
             'lastname' => ['required', 'alpha', 'max:25'],
             'gender_id' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:account'],
@@ -76,6 +71,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $pict = $data['display_picture_link'];
+        $name = time() . '.' . $pict->getClientOriginalExtension();
+        $location = 'image/' . $name;
+        Storage::putFileAs('public/image', $pict, $name);
+
         return Account::create([
             'firstname' => $data['firstname'],
             'middlename' => $data['middlename'],
@@ -84,7 +84,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'role_id' => $data['role_id'],
             'password' => Hash::make($data['password']),
-            'display_picture_link' => $data['display_picture_link'],
+            'display_picture_link' => $location,
         ]);
     }
 }

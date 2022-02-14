@@ -4,31 +4,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Amazing E-Book') }}</title>
 
-    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body class="antialiased">
-    {{-- <div id="app"> --}}
+    <div id="app">
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand text-dark mx-auto" href="{{ route('home') }}">Amazing E-Book</a>
             @if (Route::has('login'))
-                <div class="user-access hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @guest
                         @if (Route::has('login'))
-                            <a class="ml-4 text-sm text-dark bg-warning" href="{{ route('register') }}">{{ __('Sign Up') }}</a>
+                            <a class="text-sm text-dark bg-warning" href="{{ route('register') }}">{{ __('Sign Up') }}</a>
                         @endif
 
                         @if (Route::has('register'))
@@ -36,7 +32,7 @@
                         @endif
                     @else
                         <div class="menu-right">
-                            <a class="link text-dark" href="{{ route('logout') }}"
+                            <a class="link text-dark bg-warning" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                                 {{ __('Log Out') }}
@@ -51,10 +47,30 @@
             @endif
         </nav>
 
+        @if ( Auth::check())
+        <nav class="navbar navbar-expand-lg bg-warning">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav mx-auto">
+                <a class="nav-link active text-dark" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-dark" href="{{ route('cart') }}">Cart</a>
+                <a class="nav-link text-dark" href="{{ route('profile') }}">Profile</a>
+                
+                    @if ( Auth::user()->role_id == 1 )
+                        <a class="nav-link text-dark" href="{{ route('maintenance') }}">Account Maintenance</a>
+                    @endif
+                
+              </div>
+            </div>
+        </nav>
+        @endif
+
         <main class="py-4">
             @yield('content')
         </main>
-    {{-- </div> --}}
+    </div>
     
     <nav class="navbar fixed-bottom">
         <span class="mb-0 mx-auto ">&copy; Amazing E-Book 2022</span>

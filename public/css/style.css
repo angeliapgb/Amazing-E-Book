@@ -1,0 +1,49 @@
+.user-access a {
+    padding: 0.3rem;
+    margin: 0.3rem;
+}
+
+.navbar {
+    background-color: #afcae8;
+}
+
+.welcome-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 10px solid #b0ccec;
+    height: 60vh;
+    width: 60vh;
+    margin: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+#welcome-text {
+    font-size: larger;
+    text-align: center;
+}
+
+.login-redirect {
+    text-align: center;
+}
+
+#display_picture_link {
+    border: none;
+    background-color: transparent;
+}
+
+.title-book {
+    text-align: center;
+}
+
+.rent-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* .input-data input {
+    margin-left: 3rem;
+    padding-left: -5rem;
+} */

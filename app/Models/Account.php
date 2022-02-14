@@ -19,6 +19,7 @@ class Account extends Authenticatable
      */
 
     protected $table = 'account';
+    protected $guarded = [];
 
     protected $fillable = [
         'firstname',
@@ -49,4 +50,16 @@ class Account extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function order() {
+        return $this->hasMany(Order::class);
+    }
+
+    public function role() {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    public function gender() {
+        return $this->belongsTo(Gender::class, 'gender_id');
+    }
 }
