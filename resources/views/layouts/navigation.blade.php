@@ -68,8 +68,8 @@
                     </a>
                   
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="lang/en">EN</a>
                       <a class="dropdown-item" href="lang/id">ID</a>
-                      <a class="dropdown-item" href="lang/en">EN</a>
                     </div>
                   </div>
                 
