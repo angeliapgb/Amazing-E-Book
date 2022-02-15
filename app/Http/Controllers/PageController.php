@@ -132,7 +132,7 @@ class PageController extends Controller
     {
         $account = AccountModel::join('role', 'role.id', 'role_id')
                                 ->where('account.id', $id)
-                                ->update(['role_id' => $request->role_id]);
+                                ->update(['role_id' => $request->role_id, 'modified_by' => auth()->user()->email]);
 
         return redirect('maintenance');
     }
